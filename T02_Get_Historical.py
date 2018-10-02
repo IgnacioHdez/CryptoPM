@@ -1,4 +1,3 @@
-import logging
 import ccxt
 
 # Taking my keys from local file
@@ -13,8 +12,7 @@ Bin.apiKey  = str(Key[0])
 Bin.secret =  str(Key[1])
 
 # Querying Account Balance
-try:
-    MyDict = Bin.fetch_balance()
-except:
-    print('Error while fetching balance')
-print(MyDict["ETH"])
+MyDict = Bin.fetch_ohlcv('ETH/BTC')
+
+print('Results:')
+print(MyDict)
